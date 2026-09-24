@@ -34,3 +34,11 @@ Data/Analytics Engineering Portfolio
 
 7. Not completed within this project, however, here I would get with an SME and get as much context as possible to submit into the .yaml file for an AI ready model
     (think, column names, descriptions, reasons for keeping columns, synonyms, relationships, explanation of various date columns, etc...) 
+
+8. In this step, I productionized the ingestion as a notebook- note: I noticed that I needed a helper function that can be re-used for another project of this type - kept that separate for modularity.
+       NYC_API_INGESTION / databricks_py_files / 02_ingest_nyc311_bronze_job.py
+
+9. Within databricks - I created a job that runs the notebook: 02_ingest_nyc311_bronze_job.py on schedule.
+
+10. Now this this is an append job with batch run info - the silver layer must be modified to handle duplicate records.
+11. 
