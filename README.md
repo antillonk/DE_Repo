@@ -9,18 +9,18 @@ Data/Analytics Engineering Portfolio
 
 3. Now moving on to DBT + data modeling + transformation: 
   
-   3.1. I began with the stage table for reference: 
+    3.1. I began with the stage table for reference: 
           databricks_NYC_API_Project / models / staging / nyc_bronze.sql
   
-   3.2 Next I began to work on cleaning the base table to be easier to read and clear any possible inconsistencies in the data
+    3.2 Next I began to work on cleaning the base table to be easier to read and clear any possible inconsistencies in the data
           databricks_NYC_API_Project / models / fact / nyc_silver_fact.sql
 
-  3.3 Now dimensions can be created for a proper star schema data model (anything that realistically CAN be an attribute table) where I apply the surrogate keys
+    3.3 Now dimensions can be created for a proper star schema data model (anything that realistically CAN be an attribute table) where I apply the surrogate keys
           databricks_NYC_API_Project / models / dimensions / dim_agency.sql
           databricks_NYC_API_Project / models / dimensions / dim_complaint_type.sql
           databricks_NYC_API_Project / models / dimensions / dim_location_type.sql
 
-  3.4 From here, I return for the gold fact. Strip out the attributes and join in the dimension surrogate keys for easy downstream ready analytics 
+    3.4 From here, I return for the gold fact. Strip out the attributes and join in the dimension surrogate keys for easy downstream ready analytics 
           databricks_NYC_API_Project / models / fact / nyc_gold_fact.sql
 
 
