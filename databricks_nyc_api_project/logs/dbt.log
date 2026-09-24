@@ -1,0 +1,45 @@
+==================== 2026-09-23T17:10:57.196645Z | 01a0cf3f-c1a6-7f60-96d5-c021096cc2c4 ====================
+17:10:57.197070 [info ]: Installing dbt project and profile setup
+17:10:57.272686 [info ]: Info Created .vscode/extensions.json with dbt extension recommendation
+17:10:57.273286 [info ]: Success Project created successfully!
+17:10:57.273588 [info ]: Info Project name: jaffle_shop
+17:10:57.273787 [info ]: Info Project directory: jaffle_shop
+17:11:13.124669 [info ]: Info Setting up your profile...
+17:11:13.126011 [info ]: Loading ~/.dbt/profiles.yml
+17:11:13.129259 [info ]: Info Creating new profile...
+17:14:29.511455 [info ]: Success Profile written to C:\Users\KAN51D\.dbt\profiles.yml
+17:14:29.512108 [info ]: Validating profile inputs, adapters, and connection
+
+17:14:29.512685 [info ]: dbt 2.0.6
+17:14:29.514817 [info ]: Started loading project
+17:14:29.522864 [info ]: Loading ~/.dbt/profiles.yml
+17:14:29.526548 [info ]: Finished loading project [  0.01s]
+17:14:29.527169 [info ]: Started debugging
+17:14:29.531035 [info ]: Debugging profile: dev
+17:14:29.532793 [info ]: Debugging dbt version: 2.0.6
+17:14:29.534572 [info ]: Debugging platform: windows x86_64 (windows)
+17:14:29.536123 [info ]: Debugging adapter type: databricks (remote)
+17:14:29.771201 [info ]: Debugging dependencies:
+  git: OK
+17:14:29.772003 [info ]: Debugging connection:
+  "schema": "workspace.nyc_api_ingestion_project",
+  "host": "dbc-4ee57d0f-7b08.cloud.databricks.com",
+  "http_path": "/sql/1.0/warehouses/f6497a7152761c90"
+17:14:29.773227 [debug]: Databricks driver resolved: databricks 0.21.0.dev+dbt0.21.13
+17:14:52.717973 [debug]: borrow_tlocal_connection() took 22.9449913s
+17:14:52.720755 [debug]: create_debug_span(...).entered() took 73.3µs
+17:14:54.033887 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.3129846s
+17:14:54.033925 [debug]: reader.schema() took 6.5µs
+17:14:54.036491 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.3157043s
+17:14:54.036652 [debug]: concat_batches + normalize_result_column_names took 131.5µs
+17:14:54.036709 [debug]: record_current_span_status_from_attrs took 47.7µs
+17:14:54.036731 [debug]: Query executed on node unknown:
+select 1 as id
+17:14:54.036782 [debug]: drop(query_span_guard) (span exit/export) took 60.7µs
+17:14:54.037196 [debug]: adapter.execute() (full call, incl. adbc_execute_with_options) took 1.3191916s
+17:14:54.037278 [info ]: Debugging connection test: OK (24.3s)
+17:14:54.038588 [info ]: Debugged All checks passed!
+17:14:54.039380 [info ]: Finished debugging [ 24.51s]
+17:14:54.439140 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully for target 'dev' [3m 57s]
