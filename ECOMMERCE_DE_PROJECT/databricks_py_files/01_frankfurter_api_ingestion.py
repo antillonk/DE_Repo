@@ -32,4 +32,16 @@ spark.sql(f"""
     FROM {"ecommerce_de_project.stage.frankfurter_api_exchange_rate"}
 """).show()
 
+
+# verify no duplicates exist
+spark.sql(f"""
+    SELECT
+        quote, count(1)
+    FROM {"ecommerce_de_project.stage.frankfurter_api_exchange_rate"}
+        GROUP BY quote
+        HAVING count(1) > 1
+""").show()
+
+
+
 # verified  *****
