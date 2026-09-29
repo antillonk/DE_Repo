@@ -21,6 +21,9 @@ rates_df = spark.createDataFrame(records, schema=schema)
 # validating the schema/data types
 # display(rates_df)
 
+# Truncate table to create idempotency
+spark.sql("TRUNCATE TABLE IF EXISTS ecommerce_de_project.stage.frankfurter_api_exchange_rate")
+
 # write the delta table
 rates_df.write.format("delta").mode("append").saveAsTable("ecommerce_de_project.stage.frankfurter_api_exchange_rate")
 
