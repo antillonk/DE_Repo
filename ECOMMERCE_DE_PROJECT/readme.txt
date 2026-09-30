@@ -12,10 +12,8 @@ This Folder location was created to display the following skills:
 - Document architecture, assumptions, data contracts, and design decisions
 
 
+Steps:
 
-
-
-To begin - 
 1. I uploaded the CSV files for UCI and Olist using the csv upload wizard within the schema: ecommerce_de_project.stage.
 
 2. Then I wanted more API practice, so I found another 2 data sets to import using python saving the file into my databricks workspace. For this I used PySpark Spark CSV reader. 
