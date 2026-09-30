@@ -2,13 +2,13 @@ This folder was designed for a data engineering project utilizing databricks + s
 
 This Folder location was created to display the following skills:
 
--API Ingestion leveraging python/pyspark in databricks
--Preserve original source data in a landing/raw layer
--Apply explicit schemas and ingestion metadata
--Standardize each company’s sales data independently
--Handle differences in identifiers, timestamps, currencies, and transaction grain
--Build a canonical conformed sales model
--Orchestrate the full workflow through Databricks Jobs
+- API Ingestion leveraging python/pyspark in databricks
+- Preserve original source data in a landing/raw layer
+- Apply explicit schemas and ingestion metadata
+- Standardize each company’s sales data independently
+- Handle differences in identifiers, timestamps, currencies, and transaction grain
+- Build a canonical conformed sales model
+- Orchestrate the full workflow through Databricks Jobs
 - Document architecture, assumptions, data contracts, and design decisions
 
 
