@@ -2,7 +2,7 @@ import sys
 from pyspark.sql import functions as F
 from pyspark.sql.functions import desc , col, lit, udf, sum, count, avg, max, min, countDistinct, explode, array, struct
 
-# Hard-code location 
+# Hard-code location where my re-usable functions live
 func_path = "/Workspace/Users/antillonk@gmail.com/modular_functions"
 
 if func_path not in sys.path:
