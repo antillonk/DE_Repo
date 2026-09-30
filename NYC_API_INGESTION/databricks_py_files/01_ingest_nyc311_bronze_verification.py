@@ -56,7 +56,7 @@ raw_df_Spark = spark.createDataFrame(records, schema=schema)
 
 # write this as a table - Delta so we can update/delete/merge
 # lets name the table with source_tablename
-raw_df_Spark.write.format("delta").mode("append").saveAsTable("nyc_api_ingestion_project.bronze.nyc_api_service_request")
+raw_df_Spark.write.format("delta").mode("overwrite").saveAsTable("nyc_api_ingestion_project.bronze.nyc_api_service_request")
 
 
 
