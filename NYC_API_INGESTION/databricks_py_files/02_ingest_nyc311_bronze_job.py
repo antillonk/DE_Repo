@@ -107,7 +107,7 @@ bronze_df = (
 
 
 # write as delta table - since we are adding additional columns for documentation -> new table 
-bronze_df.write.format("delta").mode("append").saveAsTable("nyc_api_ingestion_project.bronze.nyc_api_service_request_02")
+bronze_df.write.format("delta").mode("overwrite").saveAsTable("nyc_api_ingestion_project.bronze.nyc_api_service_request_02")
 
 # verify delta table from desired schema
 spark.sql(f"""
