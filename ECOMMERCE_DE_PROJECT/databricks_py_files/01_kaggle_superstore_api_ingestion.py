@@ -34,8 +34,16 @@ workspace_download_path = (
 # Verify file download. 
 superstore_df = (
     spark.read
+    .format("csv")
     .option("header", "true")
     .option("inferSchema", "true")
+    # had some issues with commas and quotes creating ingest issues - testing additional options
+    # These issues were found at the transformation stage when casting columns
+    .option("quote", '"')
+    .option("escape", '"')
+    .option("mode", "PERMISSIVE")
+    .option("columnNameOfCorruptRecord", "_corrupt_record")
+    # 
     .csv(f"{workspace_download_path}/Superstore.csv") #had to add the "/" here since the original path was the initial creation
 )
 
@@ -64,6 +72,9 @@ upper_superstore_df = remove_space_superstore_df.select(
 
 superstore_df_new = upper_superstore_df
 
+# Need a timestamp to determine when I loaded this in
+superstore_df_new = upper_superstore_df.withColumn("ingest_dttm", F.current_timestamp())
+
 # Check Results
 # display(superstore_df_new.limit(10))
 # superstore_df.printSchema()
@@ -71,7 +82,7 @@ superstore_df_new = upper_superstore_df
 # verfied *********
 
 # write to delta table      *********
-superstore_df_new.write.format("delta").mode("append").saveAsTable("ecommerce_de_project.stage.kaggle_api_from_pyfile_superstore")
+superstore_df_new.write.format("delta").mode("overwrite").saveAsTable("ecommerce_de_project.stage.kaggle_api_from_pyfile_superstore")
 
 # verify within a sql notebook
 # query verified: SELECT * FROM ecommerce_de_project.stage.kaggle_api_from_pyfile_superstore;
