@@ -9,10 +9,10 @@ ensure keys are unique to each unique value and exclude nulls
 */ 
 with complaint_types as (
 
-    select UPPER(descriptor) as complaint_type
-    from {{ ref('nyc_bronze') }}
-    where descriptor is not null
-    group by descriptor
+    select complaint_type
+    from {{ ref('nyc_silver_fact') }}
+    where complaint_type is not null
+    group by complaint_type
 
 )
 

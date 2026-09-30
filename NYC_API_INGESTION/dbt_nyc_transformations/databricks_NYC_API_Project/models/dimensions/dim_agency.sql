@@ -9,18 +9,18 @@ ensure keys are unique to each unique value and exclude nulls
 */ 
 with agencies as (
 
-    select agency, agency_name
-    from {{ ref('nyc_bronze') }}
-    where agency is not null
-    group by agency, agency_name
+    select agency_id, agency_name
+    from {{ ref('nyc_silver_fact') }}
+    where agency_id is not null
+    group by agency_id, agency_name
 
 )
 
 select
-    {{ dbt_utils.generate_surrogate_key(['agency']) }}
+    {{ dbt_utils.generate_surrogate_key(['agency_id']) }}
         as agency_key
 
-    , agency as agency_id
+    , agency_id
     , agency_name
 
 from agencies

@@ -47,5 +47,3 @@ This Folder location was created to display the following skills:
 
 9. Within databricks - I created a job that runs the notebook: 02_ingest_nyc311_bronze_job.py on schedule.
 
-10. Now this this is an append job with batch run info - the silver layer must be modified to handle duplicate records.
-11. 

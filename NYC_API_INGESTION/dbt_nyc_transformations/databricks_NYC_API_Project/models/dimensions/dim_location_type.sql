@@ -9,8 +9,8 @@ ensure keys are unique to each unique value and exclude nulls
 */ 
 with location_types as (
 
-    select UPPER(location_type) as location_type
-    from {{ ref('nyc_bronze') }}
+    select location_type
+    from {{ ref('nyc_silver_fact') }}
     where location_type is not null
     group by location_type
 
