@@ -45,5 +45,17 @@ kaggle_sales = mod_functions.standardize_column_names(kaggle_sales) # contains a
 forex_rates = mod_functions.standardize_column_names(forex_rates) # Contains the daily exchange rates for the currencies for merging
 
 
+# Lets get some aggregations here to possibly normalize or join with the base olist_sales table
+payments_summary = (olist_payments.groupBy("order_id").agg(
+                                                        F.sum("payment_value").alias("total_payment_value"),
+                                                        F.count("*").alias("payment_count"),
+                                                        F.max("payment_installments").alias("max_payment_installments")
+    )
+)
+
+
+review_summary = olist_reviews.groupBy("order_id").agg(F.avg("review_score").alias("avg_review_score")).filter("avg_review_score IS NOT NULL")
+# end
+
 # Used to understand the data 
 display(forex_rates.limit(10000))
